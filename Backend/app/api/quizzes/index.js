@@ -260,7 +260,6 @@ router.put('/:id', quizMulter, (req, res) => {
     );
     res.status(201).json(quizUpdated)
   } catch (err) {
-    console.log(err);
     if (err.name === 'ValidationError') {
       res.status(400).json(err.extra)
     } else {
