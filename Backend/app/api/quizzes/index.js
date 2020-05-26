@@ -75,10 +75,8 @@ function get()
 }
 function deleteDuplication(quiz)
 {
-  console.log("here");
   for(let i=0; i<quiz.length;i++)
   {
-    console.log("here");
     for(let j=0; j<quiz.length;j++)
     {
 
