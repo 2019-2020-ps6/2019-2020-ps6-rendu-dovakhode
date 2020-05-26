@@ -243,6 +243,7 @@ function updateQuiz(id, obj, req) {
 
 router.put('/:id', quizMulter, (req, res) => {
   try {
+    const predName = JSON.parse(req.body.quiz)['label'];
     updateQuiz(req.params.id, hasQuizImage(req) ? {
       ...JSON.parse(req.body.quiz),
       image: `${req.protocol}://${req.get('host')}/images/quiz/${req.files[0].filename}`,
@@ -250,6 +251,7 @@ router.put('/:id', quizMulter, (req, res) => {
       ...JSON.parse(req.body.quiz),
     }, req);
     const quizUpdated = getAQuiz(req.params.id);
+    if(!predName.localeCompare(quizUpdated.label))
     Evolution.get().filter(evolutionConcerned=>evolutionConcerned.quizId === quizUpdated.id).forEach(
         evolutionToModify=>{
           evolutionToModify.quizNom = quizUpdated.label;
