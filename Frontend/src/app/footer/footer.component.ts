@@ -28,7 +28,7 @@ export class FooterComponent implements OnInit {
   interruptProgression() {
     if ( this.isTablet || this.isMobile ) {
       // tslint:disable-next-line:max-line-length
-      this.matDialogService.openConfirmDialog((this.progression.did > 0 ? (this.progression.did + ' ' + (this.progression.did > 1 ? 'questions jouées' : 'question joué') + ' sur ' + this.progression.total + ' .') : 'Il reste ' + this.progression.total + ' questions .') +
+      this.matDialogService.openConfirmDialog((this.progression.did > 0 ? (this.progression.did + ' ' + (this.progression.did > 1 ? 'questions jouées' : 'question jouée') + ' sur ' + this.progression.total + ' .') : 'Il reste ' + this.progression.total + ' questions .') +
         '\nVoulez-vous vraiment retourner au choix de quiz?').afterClosed().subscribe((res) => {
         if (res) {
           this.location.back();
